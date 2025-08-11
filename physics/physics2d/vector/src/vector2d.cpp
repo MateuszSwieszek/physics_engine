@@ -24,8 +24,34 @@ bool Vector2d::operator==(const Vector2d &other) const{
     return _x == other._x && _y == other._y;
 }
 
+float Vector2d::length_squared() const{
+    return _x*_x + _y*_y;
+}
+
 float Vector2d::length() const{
-    return std::sqrt(_x*_x + _y*_y);
+    return std::sqrt(length_squared());
+}
+
+void Vector2d::normalize(){
+    auto len = length();
+    if(len != 0.0)
+        *this = *this/len;
+}
+
+float Vector2d::dot_product(Vector2d other) const{
+    return _x*other._x + _y*other._y;
+}
+
+float Vector2d::cross_product(Vector2d other) const{
+    return _x*other._x - _y*other._y;
+}
+
+Vector2d Vector2d::normalized() const{
+    auto len = length();
+    Vector2d result(0,0);
+    if(len != 0.0)
+        result =  *this/length();
+    return result;
 }
 
 Vector2d operator+(const float scalar, const Vector2d &other){

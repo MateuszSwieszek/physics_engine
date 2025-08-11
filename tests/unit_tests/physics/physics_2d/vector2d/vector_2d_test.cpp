@@ -60,3 +60,35 @@ TEST_F(Vector2D_TF, test_length) {
     EXPECT_FLOAT_EQ(a.length(), 2.236068f);
     EXPECT_FLOAT_EQ(b.length(), 5.0f);
 }
+
+TEST_F(Vector2D_TF, test_length_squared) {
+    EXPECT_FLOAT_EQ(a.length_squared(), 5.0f);
+    EXPECT_FLOAT_EQ(b.length_squared(), 25.0f);
+}
+
+TEST_F(Vector2D_TF, test_normalize) {
+    a.normalize();
+    Vector2d c = b.normalized();
+    EXPECT_FLOAT_EQ(a.length(), 1.0f);
+    EXPECT_FLOAT_EQ(c.length(), 1.0f);
+}
+
+TEST_F(Vector2D_TF, test_normalize_zeroes_case) {
+    a = Vector2d(0,0);
+    b = Vector2d(0,0);
+    a.normalize();
+    Vector2d c = b.normalized();
+    EXPECT_FLOAT_EQ(a.length(), 0.0f);
+    EXPECT_FLOAT_EQ(c.length(), 0.0f);
+}
+
+TEST_F(Vector2D_TF, teest_dot_product) {
+    float c = a.dot_product(b);
+    EXPECT_FLOAT_EQ(c, 11.0f);
+}
+
+TEST_F(Vector2D_TF, teest_cross_product) {
+    float c = a.cross_product(b);
+    EXPECT_FLOAT_EQ(c, -5.0f);
+}
+
