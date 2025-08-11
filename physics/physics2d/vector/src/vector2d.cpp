@@ -2,6 +2,18 @@
 
 Vector2d::Vector2d():_x(0), _y(0){};
 Vector2d::Vector2d(float x, float y):_x(x), _y(y){};
+float Vector2d::Get_X() const{
+    return _x;
+}
+float Vector2d::Get_Y() const{
+    return _y;
+}
+void Vector2d::Set_X(float x){
+    _x = x;
+}
+void Vector2d::Set_Y(float y){
+    _y = y;
+}
 Vector2d Vector2d::operator+(const Vector2d &other) const{
     return Vector2d(_x + other._x, _y + other._y);
 }
@@ -65,4 +77,8 @@ Vector2d operator*(const float scalar, const Vector2d &other){
 }
 Vector2d operator/(const float scalar, const Vector2d &other){
     return Vector2d(scalar / other._x, scalar / other._y);
+}
+std::ostream& operator<<(std::ostream &os, const Vector2d v){
+    os << "(" << v._x << "," << v._y << ")";
+    return os;
 }

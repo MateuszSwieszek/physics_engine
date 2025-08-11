@@ -1,12 +1,18 @@
+#pragma once
 #include <cmath>
+#include <ostream>
 
 class Vector2d{
-    public:
-    
         float _x, _y;
 
+    public:
         Vector2d();
         Vector2d(float _X, float _y);
+
+        float Get_X() const;
+        float Get_Y() const;
+        void Set_X(float x);
+        void Set_Y(float y);
 
         Vector2d operator+(const Vector2d &other) const;
         Vector2d operator+(const float scalar) const;
@@ -27,4 +33,5 @@ class Vector2d{
         friend Vector2d operator-(const float scalar, const Vector2d &other);
         friend Vector2d operator*(const float scalar, const Vector2d &other);
         friend Vector2d operator/(const float scalar, const Vector2d &other);
+        friend std::ostream& operator<<(std::ostream &os, const Vector2d v);
 };
