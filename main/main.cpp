@@ -1,4 +1,4 @@
-#include "vector2d.hpp"
+#include "rigid_body.hpp"
 #include <iostream>
 
 int main(){
