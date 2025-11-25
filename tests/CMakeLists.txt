@@ -15,6 +15,7 @@ FetchContent_MakeAvailable(googletest)
 
 add_executable(tests_exec
     ${CMAKE_CURRENT_SOURCE_DIR}/unit_tests/physics/physics_2d/vector2d/vector_2d_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/unit_tests/physics/physics_2d/rigid_body/rigid_body_test.cpp
 )
 
 target_link_libraries(tests_exec
