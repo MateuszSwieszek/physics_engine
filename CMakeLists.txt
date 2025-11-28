@@ -9,8 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 # Dodaj podkatalogi — każdy ma swój CMakeLists.txt
-add_subdirectory(physics/physics2d/vector)
-add_subdirectory(physics/physics2d/rigid_body)
+add_subdirectory(physics/physics2d)
 
 if(BUILD_MAIN_EXEC)
     add_subdirectory(main)
